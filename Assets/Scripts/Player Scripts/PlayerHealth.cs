@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -10,7 +11,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField ]private GameObject panel;
     [SerializeField ]private GameObject loading;
     [SerializeField ]private GameObject gameOver;
+    [SerializeField]private TextMeshProUGUI lifeText;
     private Animator animator;
+    private float currentlife=0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +26,12 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         animator = GetComponent<Animator>();
+        if (CurrentHealthPlayer != currentlife)
+        {
+            lifeText.text = CurrentHealthPlayer.ToString();
+            currentlife = CurrentHealthPlayer;
+        }
+        
     }
     public void Damage(float damage)
     {
