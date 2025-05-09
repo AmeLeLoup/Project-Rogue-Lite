@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7479641005680202265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 93.326126, y: 162.65234}
+  Name: Spawn
+  IndividualRoomTemplates:
+  - {fileID: 7701067025097816510, guid: 9db80c9533bd2284a9ee56cb7fa41cb3, type: 3}
+  RoomTemplateSets: []
+--- !u!114 &-6539165660868399564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f692f83df7c1b5468af64edd22287dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  From: {fileID: -355940176620390859}
+  To: {fileID: -7479641005680202265}
+--- !u!114 &-3370031995388002612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: -17.307129, y: 160.7471}
+  Name: Room
+  IndividualRoomTemplates:
+  - {fileID: 6432602071022243356, guid: c5be648ad6cbe2c49bee6479325b0e4b, type: 3}
+  RoomTemplateSets: []
+--- !u!114 &-1197849455709667231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f692f83df7c1b5468af64edd22287dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  From: {fileID: -7479641005680202265}
+  To: {fileID: 2086889149882104901}
+--- !u!114 &-355940176620390859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 91.08211, y: 72.925995}
+  Name: Room
+  IndividualRoomTemplates:
+  - {fileID: 4513987796894164284, guid: c7a20908f4b6e2b4d89fccbf8dc8c324, type: 3}
+  RoomTemplateSets: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8400baee4cafd34091c865089a167b2, type: 3}
+  m_Name: GeneratedHubGraph
+  m_EditorClassIdentifier: 
+  Connections:
+  - {fileID: 7960145130117818835}
+  - {fileID: -1197849455709667231}
+  - {fileID: -6539165660868399564}
+  CorridorIndividualRoomTemplates:
+  - {fileID: 4054027515719865064, guid: 257a2e929e8beee45a753bd4c0b8dfd7, type: 3}
+  - {fileID: 4054027515719865064, guid: 3a33d2691b40b9c418651ac48c387350, type: 3}
+  CorridorRoomTemplateSets: []
+  DefaultIndividualRoomTemplates:
+  - {fileID: 3896654592748087691, guid: bcec849b3515b9a47808aab11ae0264e, type: 3}
+  - {fileID: 6432602071022243356, guid: c5be648ad6cbe2c49bee6479325b0e4b, type: 3}
+  - {fileID: 4513987796894164284, guid: c7a20908f4b6e2b4d89fccbf8dc8c324, type: 3}
+  - {fileID: 7701067025097816510, guid: c88b6da8c82ce77498464f0f86ed4d24, type: 3}
+  DefaultRoomTemplateSets: []
+  Rooms:
+  - {fileID: -7479641005680202265}
+  - {fileID: 2086889149882104901}
+  - {fileID: -3370031995388002612}
+  - {fileID: -355940176620390859}
+  EditorData:
+    PanOffset: {x: 208.41093, y: 86.76909}
+    Zoom: 0.77755994
+  RoomType: ProceduralLevelGenerator.Unity.Generators.Common.LevelGraph.Room
+  ConnectionType: ProceduralLevelGenerator.Unity.Generators.Common.LevelGraph.Connection
+--- !u!114 &2086889149882104901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 203.5027, y: 165.24811}
+  Name: Room
+  IndividualRoomTemplates:
+  - {fileID: 3896654592748087691, guid: bcec849b3515b9a47808aab11ae0264e, type: 3}
+  RoomTemplateSets: []
+--- !u!114 &7960145130117818835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f692f83df7c1b5468af64edd22287dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  From: {fileID: -3370031995388002612}
+  To: {fileID: -7479641005680202265}
