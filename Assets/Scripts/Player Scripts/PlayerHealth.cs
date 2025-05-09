@@ -6,14 +6,14 @@ public class PlayerHealth : MonoBehaviour
     public float CurrentHealthPlayer { get; set; }
 
     [SerializeField] private GameObject player;
-    private PlayerMovement playerMovement;
+    [SerializeField ]private Player_Movement playerMovement;
     private Animator animator;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CurrentHealthPlayer = MaxHealthPlayer;
-        playerMovement = player.GetComponent<PlayerMovement>();
+         
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
     public void Damage(float damage)
     {
         CurrentHealthPlayer -= damage;
-        animator.SetBool("Damage", true);
+        //animator.SetBool("Damage", true);
         if (CurrentHealthPlayer <= 0)
         {
             Die();
@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Destroy(player.gameObject);
         playerMovement.enabled = false;
-        animator.SetBool("Dead", true);
+        //animator.SetBool("Dead", true);
     }
     
 }

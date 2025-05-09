@@ -29,13 +29,15 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
 
     [SerializeField] private float dashCooldown = 2f;
-    
+
+    [SerializeField] private Transform weaponTransform;
+
     public bool isInvincible = false;
 
     private bool dashPressed = false;
-    
+
     public Weapon Weapon;
-    
+
     Vector2 _mousePosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,14 +59,13 @@ public class Player_Movement : MonoBehaviour
             Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             StartCoroutine(Dash(direction));
         }
+
         if (Input.GetMouseButtonDown(0))
         {
             Weapon.Fire();
         }
 
         _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        
     }
 
     public void Generate()
@@ -113,8 +114,9 @@ public class Player_Movement : MonoBehaviour
     {
         rigidbody.linearVelocity = movement * speed;
         Vector2 aimDirection = _mousePosition - rigidbody.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg * 90;
-        rigidbody.rotation = aimAngle;
+        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        weaponTransform.position = transform.position;
+        weaponTransform.rotation = Quaternion.AngleAxis(aimAngle, Vector3.forward);
     }
 
     void OnMove()

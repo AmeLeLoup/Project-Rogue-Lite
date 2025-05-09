@@ -21,15 +21,25 @@ public class ExplosionScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !_isdamage&& !_player.isInvincible)
+        if (other.CompareTag("Player") && !_isdamage)
         {
-            var lifePlayer = other.GetComponent<PlayerHealth>();
-            if (lifePlayer != null)
+            _player = other.gameObject.GetComponent<Player_Movement>();
+            if (_player != null)
             {
-                Debug.Log("Explosion");
-                lifePlayer.Damage(1);
-                _isdamage = true;
+                if(!_player.isInvincible)
+                {
+                    var lifePlayer = other.GetComponent<PlayerHealth>();
+                    if (lifePlayer != null)
+                    {
+                        Debug.Log("Explosion");
+                        _isdamage = true;
+                        lifePlayer.Damage(1);
+                
+                    }
+                }
             }
+           
         }
+            
     }
 }

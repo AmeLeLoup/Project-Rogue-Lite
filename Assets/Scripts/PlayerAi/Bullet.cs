@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     public float Speed = 3f;
     private Animator animator;
-    private Enemy enemy;
+   
 
     
 
@@ -22,8 +22,9 @@ public class Bullet : MonoBehaviour
         //Enemy to take damage
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
-            enemy.Damage(1);
+            enemyComponent.Damage(1);
         }
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
