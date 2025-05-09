@@ -7,6 +7,9 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField ]private Player_Movement playerMovement;
+    [SerializeField ]private GameObject panel;
+    [SerializeField ]private GameObject loading;
+    [SerializeField ]private GameObject gameOver;
     private Animator animator;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,6 +39,9 @@ public class PlayerHealth : MonoBehaviour
         //Destroy(player.gameObject);
         playerMovement.enabled = false;
         //animator.SetBool("Dead", true);
+        panel.SetActive(true);
+        loading.SetActive(false);
+        gameOver.SetActive(true);
     }
     
 }

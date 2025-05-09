@@ -9,7 +9,9 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private DungeonGeneratorBase generator;
     [SerializeField] private GameObject hub;
     [SerializeField] private GameObject dungeon;
-
+    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject loading;
+    public bool isLoading = false;
     [SerializeField] public float speed = 3f;
 
     public Rigidbody2D rigidbody;
@@ -50,33 +52,30 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dashPressed = Input.GetKeyDown(KeyCode.Space);
-
-        OnMove();
-        if (dashPressed && _canDash)
+        if (!isLoading)
         {
-            Debug.Log("Space Pressed");
-            Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            StartCoroutine(Dash(direction));
-        }
+            dashPressed = Input.GetKeyDown(KeyCode.Space);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Weapon.Fire();
-        }
+            OnMove();
+            if (dashPressed && _canDash)
+            {
+                Debug.Log("Space Pressed");
+                Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                StartCoroutine(Dash(direction));
+            }
 
-        _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (Input.GetMouseButtonDown(0))
+            {
+                Weapon.Fire();
+            }
+
+            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
     }
 
     public void Generate()
     {
-        //if(apuit sur a && curentPosPlayer == "Hub")
-        //ui chargment.setactive(true)
-        //hub.setacive(false)
-        //dungeon.setactive(true)
-        generator.Generate();
-        AstarPath.active.Scan();
-        //ui chargment.setactive(false)
+        StartCoroutine("Loading");
         //currentPosPlayer = "Dungeon"
 
         //if(apuit sur a && curentPosPlayer == "Dungeon")
@@ -112,11 +111,14 @@ public class Player_Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody.linearVelocity = movement * speed;
-        Vector2 aimDirection = _mousePosition - rigidbody.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-        weaponTransform.position = transform.position;
-        weaponTransform.rotation = Quaternion.AngleAxis(aimAngle, Vector3.forward);
+        if (!isLoading)
+        {
+            rigidbody.linearVelocity = movement * speed;
+            Vector2 aimDirection = _mousePosition - rigidbody.position;
+            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+            weaponTransform.position = transform.position;
+            weaponTransform.rotation = Quaternion.AngleAxis(aimAngle, Vector3.forward);
+        }
     }
 
     void OnMove()
@@ -131,6 +133,23 @@ public class Player_Movement : MonoBehaviour
         {
             spriteRenderer.flipX = movement.x < 0;
         }
+    }
+
+    private IEnumerator Loading()
+    {
+        isLoading = true;
+        movement = new Vector2(0, 0);
+        rigidbody.linearVelocity = movement;
+        panel.SetActive(true);
+        loading.SetActive(true);
+        //hub.setacive(false)
+        //dungeon.setactive(true)
+        generator.Generate();
+        AstarPath.active.Scan();
+        yield return new WaitForSeconds(2);
+        isLoading = false;
+        panel.SetActive(false);
+        loading.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D other)
