@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2338918614906988173}
   - component: {fileID: 4805567784420569119}
   - component: {fileID: 8806462563696133452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StateMachineTrapperTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1899560060998101511}
   - component: {fileID: 3070351042945261381}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyTrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}

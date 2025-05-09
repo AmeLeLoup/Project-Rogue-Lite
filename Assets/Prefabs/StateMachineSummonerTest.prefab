@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7727061018591065880}
   - component: {fileID: 4047346432946929336}
   - component: {fileID: 1856030158738365967}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StateMachineSummonerTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55af7c4d08dcbab4db503d491a18ac44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _motionCaC: {fileID: 0}
   PlayerIsLook: 0
   PlayerIsNotCaC: 0
   PlayerIsCaC: 0
@@ -176,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422215808235814560}
   - component: {fileID: 2797469235115415694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySummoner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
